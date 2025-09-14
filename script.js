@@ -23,6 +23,36 @@ const humanSelection = getHumanChoice().toLowerCase()
 let humanScore = 0
 let computerScore = 0
 
-function playRound(computerChoice, humanChoice) {
+function playRound(computerSelection, humanSelection) {
+if (humanSelection === "rock" && computerSelection === "rock") {
+    console.log("Its a draw!")
+}
+else if (computerSelection === "paper") {
+    console.log("You lose! Paper beats Rock!")
+}
+else if (computerSelection === "scissors") {
+    console.log("You win! Rock beats Scissors!")
+}
 
+
+if (humanSelection === "paper" && computerSelection === "paper") {
+    console.log("Its a draw!")
+}
+else if (computerSelection === "scissors") {
+    console.log("You lose! Scissors beat Paper!")
+}
+else if (computerSelection === "rock") {
+    console.log("You win! Paper beats Rock!")
+}
+
+
+if (humanSelection === "scissors" && computerSelection === "scissors") {
+    console.log("Its a draw!")
+}
+else if (computerSelection === "rock") {
+    console.log("You lose! Rock beats Scissors!")
+}
+else if (computerSelection === "paper") {
+    console.log("You win! Scissors beat Paper!")
+}
 }
