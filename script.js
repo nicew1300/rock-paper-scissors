@@ -14,64 +14,70 @@ else if (randomNum === 2) {
 else {
     return "scissors";
 }}
-let getHumanChoice = () => prompt("rock, paper or scissors?")
+
+// let getHumanChoice = () => prompt("rock, paper or scissors?")
+
+let rock = document.querySelector("#rock")
+let paper = document.querySelector("#paper")
+let scissors = document.querySelector("#scissors")
+
+rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
+paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
+scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 
 let humanScore = 0
 let computerScore = 0
 
 function playRound(humanSelection, computerSelection) {
 if (humanSelection === "rock" && computerSelection === "rock") {
-    console.log("Its a draw!")
+    result.textContent = `It's a draw!   You: ${humanScore} | Computer: ${computerScore}`
 }
 else if (humanSelection === "rock" && computerSelection === "paper") {
-    console.log("You lose! Paper beats Rock!")
+    result.textContent = `You lose! ${computerSelection} beats ${humanSelection}!   You: ${humanScore} | Computer: ${computerScore}`
     computerScore++
 }
 else if (humanSelection === "rock" && computerSelection === "scissors") {
-    console.log("You win! Rock beats Scissors!")
+    result.textContent = `You win! ${humanSelection} beats ${computerSelection}!   You: ${humanScore} | Computer: ${computerScore}`
     humanScore++
 }
 
 
 if (humanSelection === "paper" && computerSelection === "paper") {
-    console.log("Its a draw!")
+    result.textContent = `It's a draw!   You: ${humanScore} | Computer: ${computerScore}`
 }
 else if (humanSelection === "paper" && computerSelection === "scissors") {
-    console.log("You lose! Scissors beat Paper!")
+    result.textContent = `You lose! ${computerSelection} beats ${humanSelection}!   You: ${humanScore} | Computer: ${computerScore}`
     computerScore++
 }
 else if (humanSelection === "paper" && computerSelection === "rock") {
-    console.log("You win! Paper beats Rock!")
+    result.textContent = `You win! ${humanSelection} beats ${computerSelection}!   You: ${humanScore} | Computer: ${computerScore}`
     humanScore++
 }
 
 
 if (humanSelection === "scissors" && computerSelection === "scissors") {
-    console.log("Its a draw!")
+    result.textContent = `It's a draw!   You: ${humanScore} | Computer: ${computerScore}`
 }
 else if (humanSelection === "scissors" && computerSelection === "rock") {
-    console.log("You lose! Rock beats Scissors!")
+    result.textContent = `You lose! ${computerSelection} beats ${humanSelection}!   You: ${humanScore} | Computer: ${computerScore}`
     computerScore++
 }
 else if (humanSelection === "scissors" && computerSelection === "paper") {
-    console.log("You win! Scissors beat Paper!")
+    result.textContent = `You win! ${humanSelection} beats ${computerSelection}!   You: ${humanScore} | Computer: ${computerScore}`
     humanScore++
 }
 
 console.log(humanScore, computerScore);
 }
 
-function playGame() {
-let humanSelection = getHumanChoice().toLowerCase()
-let computerSelection = getComputerChoice()
-playRound(humanSelection, computerSelection)
-}
+let result = document.querySelector("#result")
 
-playGame()
-playGame()
-playGame()
-playGame()
-playGame()
+// function playGame() {
+// let humanSelection = getHumanChoice().toLowerCase()
+// let computerSelection = getComputerChoice()
+// playRound(humanSelection, computerSelection)
+// }
+
 
 if (humanScore > computerScore) {
     console.log("You won the match!");
